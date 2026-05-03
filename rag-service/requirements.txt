@@ -1,0 +1,20 @@
+# --- Web Framework ---
+fastapi
+uvicorn[standard]
+
+# --- Data Validation ---
+pydantic
+
+# --- YouTube & Audio ---
+yt-dlp
+youtube-transcript-api
+pydub
+numpy
+
+# --- AI / ML ---
+faster-whisper
+torch
+transformers
+
+# --- Python 3.13 Compatibility ---
+audioop-lts

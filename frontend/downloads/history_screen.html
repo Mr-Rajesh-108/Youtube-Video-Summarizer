@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>History - Ethereal Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#00354a",
+                        "tertiary-container": "#37bcf7",
+                        "secondary-fixed-dim": "#dbb4ff",
+                        "inverse-primary": "#8083ff",
+                        "background": "#f5f7f9",
+                        "on-secondary-fixed-variant": "#7511c3",
+                        "surface-dim": "#d0d5d8",
+                        "error-container": "#f74b6d",
+                        "tertiary": "#006286",
+                        "on-error-container": "#510017",
+                        "surface-bright": "#f5f7f9",
+                        "on-secondary-container": "#6900b4",
+                        "on-tertiary-fixed-variant": "#003e56",
+                        "primary-fixed": "#9396ff",
+                        "on-primary-container": "#0a0081",
+                        "inverse-on-surface": "#9a9d9f",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f5f7f9",
+                        "on-tertiary-fixed": "#001a27",
+                        "on-surface-variant": "#595c5e",
+                        "surface-container-low": "#eef1f3",
+                        "on-primary-fixed": "#000000",
+                        "primary": "#4647d3",
+                        "secondary-container": "#e5c6ff",
+                        "error": "#b41340",
+                        "secondary": "#8126cf",
+                        "secondary-dim": "#740ec2",
+                        "inverse-surface": "#0b0f10",
+                        "on-secondary": "#fbefff",
+                        "surface-container-high": "#dfe3e6",
+                        "on-error": "#ffefef",
+                        "tertiary-dim": "#005675",
+                        "surface-tint": "#4647d3",
+                        "on-primary-fixed-variant": "#0e009d",
+                        "on-primary": "#f4f1ff",
+                        "on-tertiary": "#e7f5ff",
+                        "outline-variant": "#abadaf",
+                        "secondary-fixed": "#e5c6ff",
+                        "surface-variant": "#d9dde0",
+                        "outline": "#747779",
+                        "on-background": "#2c2f31",
+                        "surface-container-highest": "#d9dde0",
+                        "primary-dim": "#3939c7",
+                        "surface-container": "#e5e9eb",
+                        "tertiary-fixed-dim": "#1bafe9",
+                        "primary-container": "#9396ff",
+                        "error-dim": "#a70138",
+                        "on-surface": "#2c2f31",
+                        "tertiary-fixed": "#37bcf7",
+                        "primary-fixed-dim": "#8387ff",
+                        "on-secondary-fixed": "#4f0089"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Component -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 flex flex-col h-full p-4 gap-2 z-40">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-indigo-600 leading-tight">The Archivist</h1>
+<p class="text-[10px] font-semibold tracking-wide uppercase Inter text-slate-500">Premium Curator</p>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-secondary text-on-primary py-3 px-4 rounded-full font-semibold text-sm flex items-center justify-center gap-2 mb-6 shadow-lg shadow-primary/20 hover:scale-[0.98] active:opacity-80 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            New Summary
+        </button>
+<div class="flex-1 space-y-1">
+<!-- Nav Item: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 transition-transform duration-200 text-xs font-semibold tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Nav Item: Library -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 transition-transform duration-200 text-xs font-semibold tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="subscriptions">subscriptions</span>
+                Library
+            </a>
+<!-- Nav Item: History (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white shadow-sm text-indigo-600 font-semibold text-xs tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                History
+            </a>
+<!-- Nav Item: Collections -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 transition-transform duration-200 text-xs font-semibold tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+                Collections
+            </a>
+<!-- Nav Item: Settings -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 transition-transform duration-200 text-xs font-semibold tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<div class="pt-4 border-t border-slate-200/50 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 transition-transform duration-200 text-xs font-semibold tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 transition-transform duration-200 text-xs font-semibold tracking-wide uppercase Inter" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-12">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<h2 class="text-display-lg text-4xl font-extrabold tracking-tight text-on-background">History</h2>
+<p class="text-on-surface-variant max-w-md">Chronological archive of your curated video insights and generated transcripts.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="pl-12 pr-6 py-3 bg-surface-container-lowest rounded-xl border-none shadow-[0_20px_40px_rgba(44,47,49,0.06)] focus:ring-2 focus:ring-primary/20 w-72 text-sm placeholder:text-on-surface-variant" placeholder="Search archive..." type="text"/>
+</div>
+<button class="flex items-center justify-center p-3 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Stats Bento Grid (Visual Context) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(44,47,49,0.06)] border-none">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-2">Total Summaries</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-extrabold text-primary">1,284</span>
+<span class="text-tertiary text-xs font-semibold bg-tertiary-container/20 px-2 py-1 rounded-full">+12 today</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(44,47,49,0.06)] border-none">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-2">Time Saved</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-extrabold text-secondary">42.5h</span>
+<span class="text-secondary text-xs font-semibold bg-secondary-container/20 px-2 py-1 rounded-full">this month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(44,47,49,0.06)] border-none">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-2">Efficiency Score</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-extrabold text-tertiary">94%</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-6 bg-primary rounded-full"></div>
+<div class="w-1.5 h-6 bg-primary/60 rounded-full"></div>
+<div class="w-1.5 h-4 bg-primary/30 rounded-full mt-auto"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- History Table Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(44,47,49,0.06)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-on-surface-variant">Video Title</th>
+<th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-on-surface-variant">Date Summarized</th>
+<th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-on-surface-variant">Length</th>
+<th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-20 h-12 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Modern YouTube player interface with vibrant colorful abstract video thumbnail showing purple and blue light waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8pmBSFXHRbudBCNBZ-GhN0d2IvbjmtgMpZ8y8ATDtqhHJSYR3LbLqnxe3_9GqKd_10_ZSaqTXfcIe8-PLCBQoEcv9izggszd8S1jt7mCQzh30QxoG2A_acZ3pwSWc79tLF1cSiwz3lcy0rqpXh68joECM9fVw0WIBeEA2gYdLcBsBhwDHjq2dn1ng0NpTRGC7VCBeHpCEt47zNJJPCYyizTPhLJFlpBeQyAe3LaSdlKEdnCqTweTDIGzHDAc3SFAJaqygvtPEP58"/>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-1">The Future of Neural Architecture: A 2024 Deep Dive</p>
+<p class="text-xs text-on-surface-variant mt-1">Tech Trends with Liam</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-medium text-on-surface">Oct 24, 2023</p>
+<p class="text-xs text-on-surface-variant mt-1">14:32 PM</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">18:45</span>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-20 h-12 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Minimalist workspace with laptop on white desk and natural sunlight creating soft shadows from a nearby plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBThBykSIqcoX4OOVZCR4KRwyFK8FmsayiNv1bRgMUC6RYG-KZt7Gcgk_yVZym9Rfk6Uv7W8x7jb4KtFJsxi_JFyZC3XPv_31EQmbtVVdZBcPdEf12tC8jam10CNgrPMdPeqSFAY6_RNcx2chPNIV2fJgfgBeZXylpR0Yfcq5bl-IxfOQysPi_UU8F86SHtXiIZYKlan4ipLaiSMxaeWga5BW1OXs9FJdU4DQhMJ5z_jLglJULP-WXaXwK2NQWR_XOur6qtfJnp9fw"/>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-1">Productivity Systems that actually work for Developers</p>
+<p class="text-xs text-on-surface-variant mt-1">Code &amp; Flow</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-medium text-on-surface">Oct 23, 2023</p>
+<p class="text-xs text-on-surface-variant mt-1">09:15 AM</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">12:10</span>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-20 h-12 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Detailed close-up of computer code with syntax highlighting in a dark mode code editor background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACroh8mH-yUNsGCGjUKz0Dt1FVqHsTYEdhKMj_qtB7g8NCwx5j3_wGriGdEG5hmrvOD0Ubi2kW9yz4elPXlkBB7jhqiNrIxwa1iZaaXGU1XWzK1jK8b9Shby3Jpe5CVBOdeLpa3M55grffv1Ir1YyrVBaB0p_18DEw4Urlq-pKaMzpZRyifzcuaqnTpwUIQK1Lq5ONip-Fh9dw5iZwPed2d67WEiEXGdGWFYxLAOmtvSqQlCJmpr9MfAayWMOr3w-oK-ZzfjPbSp0"/>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-1">Building Scalable Apps with Next.js 14</p>
+<p class="text-xs text-on-surface-variant mt-1">Vercel Official</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-medium text-on-surface">Oct 22, 2023</p>
+<p class="text-xs text-on-surface-variant mt-1">18:50 PM</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">45:22</span>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-20 h-12 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-tech glowing circuit board patterns on a dark surface representing artificial intelligence and data processing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6PYh6d_l4N40u0KvfMq6d-nFl2UR36PNVP_VA_U1PpmVo_e596d9vhqPump8GdJEoJi8OqGHKASXvR2onHF1_pTbFeCkmyDLDO7mlZgVa1nYwP6S2jdcFLZTbvT5P4f21Ao_GHWXdoWzIAAdYeUTk5aX_89cvNLAIqExI4QALoRIwSGPuW9cxEha-3mLCgXdnEGRUa4LaV_ALnK1YjWwwl7PgxZ44Yw8PIC6enUfqCVSOGhCLjgsdQKV9RGfcme34ZcBjrj9LiP4"/>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-1">AI Ethics: The Conversation We're Not Having</p>
+<p class="text-xs text-on-surface-variant mt-1">Philosophy Now</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-medium text-on-surface">Oct 21, 2023</p>
+<p class="text-xs text-on-surface-variant mt-1">11:00 AM</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">08:15</span>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<footer class="px-8 py-6 border-t border-surface-container-low flex items-center justify-between">
+<p class="text-sm text-on-surface-variant font-medium tracking-normal">Showing 1 to 4 of 1,284 entries</p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg border border-transparent hover:bg-surface-container-high text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high text-on-surface transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high text-on-surface transition-colors">3</button>
+<span class="w-10 h-10 flex items-center justify-center text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high text-on-surface transition-colors">321</button>
+</div>
+<button class="p-2 rounded-lg border border-transparent hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</footer>
+</section>
+<!-- Footer from Shared Components -->
+<footer class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center bg-slate-50 dark:bg-slate-950 mt-12 border-t border-slate-200/20 text-sm Inter tracking-normal">
+<p class="font-bold text-slate-900 dark:text-slate-100 mb-4 md:mb-0">© 2024 Ethereal Archivist. AI-Driven Insights.</p>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-indigo-500 underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-indigo-500 underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-indigo-500 underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">API</a>
+<a class="text-slate-500 hover:text-indigo-500 underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Twitter</a>
+</div>
+</footer>
+</main>
+</body></html>
